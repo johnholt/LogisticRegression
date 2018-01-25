@@ -37,7 +37,7 @@ EXPORT DATASET(Layout_Model)
                REAL8 epsilon=Constants.default_epsilon,
                REAL8 ridge=Constants.default_ridge) := FUNCTION
   // determine which work items are local versus global
-  stats := LR.DataStats(independents, dependents, FALSE);
+  stats := LR.DataStats(independents, dependents, FALSE, FALSE);
   wi_Map := RECORD
     t_work_item wi;
     BOOLEAN run_local;

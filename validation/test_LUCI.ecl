@@ -1,4 +1,4 @@
-IMPORT LogisticRegression AS LR;
+IMPORT $.^ AS LR;
 IMPORT LR.Types AS Types;
 IMPORT ML_Core;
 
