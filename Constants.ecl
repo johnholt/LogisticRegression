@@ -24,6 +24,7 @@ EXPORT Constants := MODULE
   EXPORT base_ind_vars := base_epsilon + 1;
   EXPORT base_dep_vars := base_ind_vars + 1;
   EXPORT base_obs := base_dep_vars + 1;
+  EXPORT base_cls := base_obs + 1;
   // base record column 1 (builder) values
   EXPORT builder_irls_local := 1; // value of (0,1) when IRLS local used
   EXPORT builder_irls_global := 2; //value of (0,1)

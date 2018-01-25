@@ -1,4 +1,5 @@
 IMPORT ML_Core.Types AS Core_Types;
+IMPORT Std.BLAS;
 
 EXPORT Types := MODULE
   EXPORT AnyField     := Core_Types.AnyField;
@@ -10,7 +11,9 @@ EXPORT Types := MODULE
   EXPORT t_FieldNumber:= Core_Types.t_FieldNumber;
   EXPORT t_FieldReal  := Core_Types.t_FieldReal;
   EXPORT t_Discrete   := Core_Types.t_discrete;
-  EXPORT t_Universe := UNSIGNED1;
+  EXPORT t_Universe   := UNSIGNED1;
+  EXPORT t_dimension  := BLAS.Types.dimension_t;
+  EXPORT t_matrix     := BLAS.Types.matrix_t;
   EXPORT Field_Desc := RECORD
     t_FieldNumber number;   // the column
     UNSIGNED4 cardinality;  // 0 for too many values
@@ -167,4 +170,35 @@ EXPORT Types := MODULE
     SET OF STRING wi_list;  // can be ALL or one or more work item names
     STRING score_card_name; // score card name pattern
   END;
+  EXPORT Part_Rec := RECORD
+    t_work_item wi;
+    t_dimension matrix_rows;
+    t_dimension matrix_cols;
+    t_dimension part_rows;
+    t_dimension part_cols;
+    t_dimension node_id;
+    t_dimension block_row;
+    t_dimension block_col;
+    t_dimension first_node_id;
+    t_dimension part; // zero based
+    t_dimension parts;
+    t_matrix mat;
+  END;
+  EXPORT Part_Scheme := RECORD
+    t_work_item wi;
+    t_dimension obs_per_part;
+    t_dimension dim_per_part;
+    t_dimension cls_per_part;
+    t_dimension obs;
+    t_dimension dim;
+    t_dimension cls;
+    t_dimension data_parts;
+    t_dimension data_nodes;
+    t_dimension coef_parts;
+    t_dimension coef_nodes;
+    t_dimension frst_node;
+  END;
+  EXPORT Matrix_Op := ENUM(UNSIGNED1, Max_Val=1, Min_Val, Ave_Val, Sum_Val,
+                           Ave_Abs, Sum_Abs, Sum_Sqs, Zeros, Non_Zeros,
+                           Max_Pos, Min_Pos);
 END;
