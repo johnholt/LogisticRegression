@@ -10,5 +10,5 @@ Glass_Rec := RECORD
   REAL8 Fe;
   INTEGER Type_Glass;
 END;
-glass_ds := DATASET('~thor::jdh::test::glass.csv', Glass_Rec, CSV(HEADING(1)));
+glass_ds := DATASET('~thor::testdata::ml::glass_csv', Glass_Rec, CSV(HEADING(1)));
 EXPORT multinomial_glassDS := glass_ds;

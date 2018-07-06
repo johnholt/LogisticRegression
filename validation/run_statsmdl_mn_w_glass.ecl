@@ -12,7 +12,7 @@ Glass_Rec := RECORD
   REAL8 Fe;
   INTEGER Type_Glass;
 END;
-glass_ds := DATASET('~thor::jdh::test::glass.csv', Glass_Rec, CSV(HEADING(1)));
+glass_ds := DATASET('~thor::testdata::ml::glass.csv', Glass_Rec, CSV(HEADING(1)));
 //t0 := TABLE(glass_ds, {Type_Glass, c:=COUNT(GROUP)}, Type_Glass, FEW, UNSORTED);
 //UNSIGNED statsmdl_mn(DATASET(Glass_Rec) g) := EMBED(Python)
 UNSIGNED statsmdl_mn(UNSIGNED g) := EMBED(Python)
